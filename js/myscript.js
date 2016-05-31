@@ -1,0 +1,374 @@
+var mq = window.matchMedia( "(max-width: 285px)" );
+var mq720 = window.matchMedia( "(max-width: 720px)" );
+var mylogo = document.getElementById("mylogo");
+if(mq.matches) {	
+	mylogo.innerHTML = "SSR";
+}
+if(mq720.matches) {
+	
+} 
+
+
+
+function changelogo() {
+	return function() {
+		if(mq.matches) {			
+			mylogo.innerHTML = "SSR";
+		}
+		else {
+			mylogo.innerHTML = "Syco Scientist Records"
+		}
+	}
+}
+
+window.onresize = changelogo();
+
+
+if ( window.matchMedia( "(max-width: 768px)" ).matches) {
+	var state = 0;
+	var opened = 1;
+	var closed = 0;
+	document.getElementById("panel").style.height = "0px";
+	document.getElementById("panel").style.padding = "0px";
+
+	function togglestate1() {
+		if(state == opened) {
+			state = closed;
+			document.getElementById("panel").style.height = "0px";
+			document.getElementById("panel").style.padding = "0px";
+		}
+		else {
+			state = opened;
+			document.getElementById("panel").style.height = "390px";
+			document.getElementById("panel").style.padding = "20px 25px";
+		}
+	}
+	document.getElementById("flip").addEventListener("click", togglestate1);
+
+	var framewidth = getComputedStyle(document.getElementsByClassName("main-video")[0]).width;
+	document.getElementsByClassName("main-video")[0].style.height = (9/16 * parseInt(framewidth)) + 'px';
+	$("#home").css("height", $(window).height());
+}
+
+if (window.matchMedia( "(min-width: 768px)" ).matches) {	
+	var state = 1;
+	var opened = 1;
+	var closed = 0;
+	function togglestate2() {
+		if(state == opened) {
+			state = closed;			
+			
+			document.getElementsByClassName("heading")[0].querySelector("h6").style.opacity = "0";
+			document.getElementsByClassName("heading")[0].querySelector("h6").style.display = "none";	
+			document.getElementById("main-video").className = "col-lg-11 col-md-11 col-sm-11";			
+			document.getElementsByClassName("playlist")[0].style.width = "54px";
+			var nodes = document.getElementsByClassName("playlist-videos")[0].getElementsByTagName("img");
+			document.getElementsByClassName("playlist-videos")[0].style.overflowY = "hidden";
+			for(var i=0; i<nodes.length; i++) {
+				nodes[i].style.width = "0px";
+			}
+		}
+		else {
+			state = opened;
+			document.getElementsByClassName("playlist")[0].style.width = "33.3333333%";			
+			document.getElementById("main-video").className = "col-lg-8 col-md-8 col-sm-8";
+			document.getElementsByClassName("heading")[0].querySelector("h6").style.opacity = "1";
+			var disp1 = setInterval( function(){
+				document.getElementsByClassName("heading")[0].querySelector("h6").style.display = "block";				
+			}, 1000 );
+
+			document.getElementsByClassName("playlist-videos")[0].style.overflowY = "auto";
+			var nodes = document.getElementsByClassName("playlist-videos")[0].getElementsByTagName("img");
+			for(var i=0; i<nodes.length; i++) {
+				nodes[i].style.width = "100%";
+			}
+		}
+	}
+	document.getElementById("flip").addEventListener("click", togglestate2);
+}
+
+/* Swiping menu for buying Beats Starts*/
+
+var center = document.getElementsByClassName("panel-group")[0];
+var intpos, increment = 0, lastpos = 0, direction, oldx = 0;
+
+var mouseDown = 0;
+var numofclicks = 0;
+document.body.addEventListener("touchstart", function() { 
+	++mouseDown;
+	++numofclicks;
+} );
+document.body.addEventListener( "touchend", function() {
+	--mouseDown;
+	lastpos = parseInt(center.style.left) || 0;
+
+	if( parseInt(center.style.left) > -50 ) {
+
+		center.style.left = "0px";
+	}
+	else if( (parseInt(center.style.left) < -50) ) {
+
+		center.style.left = "-100%";
+	}
+});
+center.addEventListener("touchstart", function(down) {
+
+	intpos = down.touches[0].screenX;
+
+	center.addEventListener( "touchmove", function(Dmove) {
+		increment = (Dmove.touches[0].screenX - intpos);
+		if(mouseDown & (numofclicks != 1)) {
+			center.style.left = (lastpos + increment) + "px";				
+		} 
+		else if (mouseDown & (numofclicks == 1) ){
+			center.style.left = increment + "px";				
+		}		
+
+		if (Dmove.touches[0].pageX < oldx) {
+			direction = "left";
+		} else if (Dmove.touches[0].pageX > oldx) {
+			direction = "right";
+		}			
+		oldx = Dmove.touches[0].pageX;			
+	});
+});
+
+/* Swiping menu finishes here */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* jquery scrolling starts */
+
+var myscroll = {};
+myscroll.list = document.getElementsByClassName("navbar-right")[0].getElementsByTagName("li");
+
+myscroll.bodypos = function getScrollY() {
+	var scrOfY = 0;
+	if( typeof( window.pageYOffset ) == 'number' ) {
+		//Netscape compliant
+		scrOfY = window.pageYOffset;
+
+	} else if( document.body && ( document.body.scrollLeft || document.body.scrollTop ) ) {
+			//DOM compliant
+			alert();
+			scrOfY = document.body.scrollTop;
+
+		} else if( document.documentElement && ( document.documentElement.scrollLeft || document.documentElement.scrollTop ) ) {
+				//IE6 standards compliant mode
+				scrOfY = document.documentElement.scrollTop;
+
+			}
+
+			return scrOfY;
+		}
+
+		function getScrollpos(idname) {
+			return document.getElementById(idname).offsetTop;
+		}
+		myscroll.point = [];
+		myscroll.idnames = []; 
+		myscroll.point[0] = getScrollpos("home");
+		myscroll.point[1] = getScrollpos("artists");
+		myscroll.point[2] = getScrollpos("songs");
+		myscroll.point[3] = getScrollpos("beats");
+		myscroll.point[4] = getScrollpos("contact");
+		myscroll.idnames[0] = document.getElementById("home").getAttribute("id");
+		myscroll.idnames[1] = document.getElementById("artists").getAttribute("id");
+		myscroll.idnames[2] = document.getElementById("songs").getAttribute("id");
+		myscroll.idnames[3] = document.getElementById("beats").getAttribute("id");
+		myscroll.idnames[4] = document.getElementById("contact").getAttribute("id");
+
+
+
+		function removeclass() {
+			for(var i=0; i < 5; i++) {
+				myscroll.list[i].className = "";
+			}
+		}
+
+
+
+		window.addEventListener('scroll', function(e) { 		
+
+			if (myscroll.bodypos() >= myscroll.point[0] - window.innerHeight/2 ){
+				removeclass();
+				myscroll.list[0].className = "active";
+
+			}
+
+
+			if (myscroll.bodypos() >= myscroll.point[1] - window.innerHeight/2 ){
+				removeclass();		
+				myscroll.list[1].className = "active";
+
+			}
+
+			if (myscroll.bodypos() >= myscroll.point[2] - window.innerHeight/2 ){
+				removeclass();
+				myscroll.list[2].className = "active";
+
+			}
+
+			if (myscroll.bodypos() >= myscroll.point[3] - window.innerHeight/2 ){
+				removeclass();
+				myscroll.list[3].className = "active";
+
+			}
+
+			if (myscroll.bodypos() >= myscroll.point[4] - window.innerHeight/2 ){
+				removeclass();
+				myscroll.list[4].className = "active";
+
+			}
+		});
+
+		for( var j=0; j < 5; j++) {
+
+			(function(j) {
+
+				myscroll.list[j].anchor = document.getElementsByClassName("navbar-right")[0].getElementsByTagName("li")[j].getElementsByTagName("a")[0];
+
+				$(myscroll.list[j].anchor).click(function(event) {
+					event.preventDefault();
+					$('html, body').animate({
+						scrollTop: myscroll.point[j],
+
+					}, 700 , function() { window.location = event.target.href } );		
+
+
+				});
+
+
+			}(j));
+
+		}
+
+		/* jquery scrolling finishes */
+
+
+
+
+
+
+
+		/* songs playlist selector with jquery starts here */
+
+
+		$(".playlist-videos img").click(function() {
+
+			var myattr = $(this).attr("alt");
+			$("#main-video iframe").attr("src", myattr);
+
+		});
+
+
+
+		/* Songs playlist selector with jquery finishes here */
+
+
+
+
+
+
+
+
+
+
+
+
+		/* song player jquery starts */
+		var songs ={};
+		songs.playing = 0;
+		songs.src0 = "songs/hello.mp3";
+		songs.currsong = $("#song1");
+		songs.songname = "Solder";
+		$("#play-pause").click( function(){
+
+			if(songs.playing == 1) {
+				songs.playing = 0;
+				$("#active-song")[0].pause();
+				$("#play-pause img").css("display", "none");
+				$("#play-pause").css("backgroundColor", "transparent");
+			}
+			else {
+				songs.playing = 1;
+				$("#active-song")[0].play();
+				$("#play-pause img").css("display", "block");
+				$("#play-pause").css("backgroundColor", "white");
+			}
+
+		});
+
+
+		$(".media .pull-right").click( function(){
+			songs.currsong = $(this).next();
+			songs.src0 = $( "source", ( $(this).next() ) ).attr("src");
+			songs.songname = $(this).parent().find(".beat-name span").text();
+			$(".naming .track-name").text(songs.songname);
+			$("#active-song source").attr("src", songs.src0) ;
+			$("#active-song")[0].load();
+			$("#active-song")[0].play();
+			$("#play-pause img").css("display", "block");
+			$("#play-pause").css("backgroundColor", "white");
+		})
+
+		$("#forward").click( function(){
+			songs.currsong = songs.currsong.parent().next().children("audio");
+			if(songs.currsong.length != 0) {
+				songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+				songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
+				$(".naming .track-name").text(songs.songname);
+				$("#active-song source").attr("src", songs.src0);
+				$("#play-pause img").css("display", "block");
+				$("#play-pause").css("backgroundColor", "white");
+				$("#active-song")[0].load();
+				$("#active-song")[0].play();
+			}
+			else {
+				songs.currsong = $("#song1");
+				songs.songname = $("#song1").parent().find(".beat-name span").text();
+				songs.src0 = $( "source", ( $("#song1") ) ).attr("src");
+				$(".naming .track-name").text(songs.songname);
+				$("#active-song source").attr("src", songs.src0);
+				$("#play-pause img").css("display", "block");
+				$("#play-pause").css("backgroundColor", "white");
+				$("#active-song")[0].load();
+				$("#active-song")[0].play();
+			}
+		})
+$("#backward").click( function(){
+	songs.currsong = songs.currsong.parent().prev().children("audio");
+	if(songs.currsong.length != 0) {
+		songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+		songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
+		$(".naming .track-name").text(songs.songname);
+		$("#active-song source").attr("src", songs.src0);
+		$("#play-pause img").css("display", "block");
+		$("#play-pause").css("backgroundColor", "white");
+		$("#active-song")[0].load();
+		$("#active-song")[0].play();
+	}
+	else {
+		songs.currsong = $(".beat-list audio").last();
+		songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+		songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
+		$(".naming .track-name").text(songs.songname);
+		$("#play-pause img").css("display", "block");
+		$("#play-pause").css("backgroundColor", "white");
+		$("#active-song source").attr("src", songs.src0) ;
+		$("#active-song")[0].load();
+		$("#active-song")[0].play();
+	}
+})
+
+/* song player jquery finishes */
