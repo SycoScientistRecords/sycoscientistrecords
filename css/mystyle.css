@@ -1,0 +1,997 @@
+a:focus { 
+	outline: none;
+}
+.no-border-bottom {
+	border-bottom: 0;
+}
+.push-right {
+	margin-left: auto !important;
+	margin-right: 0px !important;
+}
+.no-padding {
+	padding: 0;
+}
+*::-webkit-input-placeholder {
+	font-size: 12px ;
+}
+
+*:-moz-placeholder { /* Firefox 18- */
+	font-size: 12px ;  
+}
+
+*::-moz-placeholder {  /* Firefox 19+ */
+	font-size: 12px ;  
+}
+
+*:-ms-input-placeholder {  
+	font-size: 12px ;  
+}
+*::-webkit-scrollbar {
+	width: 4px;
+
+}
+*::-webkit-scrollbar-button {
+	background: #d6d5d5;
+	width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+	background: #d6d5d5;
+	width: 4px;
+}
+*::-webkit-scrollbar-thumb {
+	background: white;
+	width: 4px;
+	}​
+	*, body, html {
+		font-family: raleway, arial;
+		overflow-x: hidden;
+		width: 100%;
+		
+	}
+	
+	
+
+
+
+
+
+	.navbar {
+		min-height: 60px;
+		border-color: #333;
+		background-color: #d6d5d5;
+		margin-bottom: 0;
+	}
+
+	.navbar .navbar-header .navbar-brand {
+		height: 60px;
+		padding: 20px 15px;
+		color: #333 ;
+		font-family: Raleway;
+		font-weight: bold;
+		font-style: italic;
+	}
+	.navbar .navbar-header .navbar-toggle {
+		margin-top: 14px;
+		border-color: #d5d5d5 ;
+	}
+	.navbar .navbar-header .navbar-toggle > .icon-bar {
+		background-color: #333 ;
+	}
+	.navbar ul.navbar-nav {
+		margin-bottom: 0 ;
+	}
+	.navbar ul.nav > li > a {
+		height: 60px;
+		font-size: 14px;
+		line-height: 20px;
+		padding: 20px 15px;
+		color: #333 ;
+		text-align: center;
+	}
+	.navbar ul.nav > li > a:hover {
+		color: #333;
+		background-color: #e7e7e7;
+	}
+	.navbar ul.nav > li.active > a,
+	.navbar ul.nav > li.active > a:hover,
+	.navbar ul.nav > li.active > a:focus  {
+		background-color: #333;
+		color: #d6d5d5;
+	}
+
+	#home {
+		background-color: #333;
+		z-index: 6;
+		height: 100vh;
+	}
+	.carousel {
+
+		width: 100%;
+		height: 100%;
+			 
+	}
+	.mobile-carousel {
+		padding-top: 61px;
+		height: 100%;
+		margin: 0 -15px;
+
+	}
+	.carousel-inner {
+		height: 100%;
+		padding-top: 0px;
+	}
+	.carousel-inner .item {
+		height: 100%;
+		-webkit-transition-timing-function: cubic-bezier(.71,-0.06,.36,1.35);
+		transition-timing-function: cubic-bezier(.71,-0.06,.36,1.35);
+		width: 100%;
+		height: 568px;
+		height: 100%;
+	}
+
+
+	.carousel-inner .first {
+		width: 100%;	
+		margin: auto;
+		background: url(../images/studio.jpg) no-repeat fixed;
+		background-position: center 61px;
+		background-size: 100% calc(100% - 61px);
+		background-clip: content-box;
+	}
+	.carousel-inner .second {
+		width: 100%;	
+		margin: auto;
+		background: url(../images/mike.jpg) no-repeat fixed;
+		background-position: center 61px;
+		background-size: 100% calc(100% - 61px);
+		background-clip: content-box;
+	}
+	.carousel-inner .third {
+		width: 100%;	
+		margin: auto;
+		background: url(../images/discScratch.jpg) no-repeat fixed;
+		background-position: center 61px;
+		background-size: 100% calc(100% - 61px);
+		background-clip: content-box;
+	}
+	.carousel-inner .fourth {
+		width: 100%;	
+		margin: auto;
+		background: url(../images/ThugLife.jpg) no-repeat fixed;
+		background-position: center 61px;
+		background-size: 100% calc(100% - 61px);
+		background-clip: content-box;
+	}
+	.carousel-control span {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+	}
+	.carousel-control span img {
+		position: absolute;
+		top: -36px;
+		left: -9px;
+
+	}
+	.carousel-indicators {
+		bottom: 0px;
+		margin-bottom: 0;
+	}
+	.carousel-indicators li {
+		background-color: #777;
+		border: 0;
+	}
+	.carousel-indicators li.active {
+		background-color: #dcdbdb;
+		margin: 1px;
+		width: 10px;
+		height: 10px;
+	}
+	.carousel-caption {
+		font-family: raleway;
+	}
+	.carousel-caption  h3 {
+		margin-top: 0;
+	}
+	#artists {	
+		min-height: 768px;
+		min-height: 100vh;
+		padding: 100px 0;
+		background-color: white;
+	}
+	#artists h2 {
+		margin: 0;
+		line-height: 1em;
+		margin-bottom: 40px;
+	}
+	#artists hr {
+		padding: 0 15px;
+		color: #333;
+		border-color: #333;
+	}
+	.no-margin {
+		margin: 0 !important;
+	}
+	.latest-songs, .upcoming-shows {
+		margin-top: 15px;
+		list-style-type: disc;
+		list-style-position: outside;
+		padding-left: 15px;
+		margin-bottom: 30px;
+	}
+	.latest-songs li, .upcoming-shows li {
+		line-height: 24px;
+		list-style-type: square;
+	}
+	.read-more {
+		color: white;
+		background-color: #333;
+		border-radius: 1px;
+		border-color: #a6a6a4;
+		margin-bottom: 15px;
+	}
+	.read-more:hover {
+		border-color: #333;
+	}
+
+
+
+
+	#songs {		
+		min-height: 768px;
+		background-color: #111;
+		padding: 100px 0;
+		color: #d6d5d5;
+	}
+	#songs h2 {
+		margin: 0;
+		margin-bottom: 40px;
+		line-height: 1em;
+		color: white;
+	}
+	#songs .heading {
+		line-height: 34px;
+		transition: all .5s ease;
+
+	}
+
+	#songs .playlist {
+		transition: all .5s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	#songs .playlist-container {	
+		background-color: black;
+		padding: 0 15px;		
+		transition: all .5s ease;
+		position: absolute;
+		width: 100%;
+	}
+
+
+	#songs .playlist .heading {
+		border-bottom: 1px solid #333;
+		padding-left: 15px;
+		height: 50px;
+		line-height: 49px;
+		transition: all .5s ease;
+	}
+	#songs .navbar-toggle {
+		display: block;
+		color: white;
+		margin: 0;
+		padding: 16px 0;
+		z-index: 5;
+		
+	}
+	#songs .navbar-toggle .icon-bar {
+		background-color: white;
+	}
+
+	#songs .playlist h6{
+		margin: 0;
+		line-height: 49px;
+		transition: all 1s ease;
+		opacity: 1;
+	}
+	#songs .playlist .playlist-videos {
+		padding: 20px 25px;
+		border-top: 0px solid #555;
+		overflow-y: auto;
+		overflow-x: hidden; 
+		min-height: 0px;
+		height: 390px;
+		transition: all .5s ease;
+	}
+	#songs .playlist .playlist-videos img {
+		width: 100%;
+		height: 90px;
+		margin-bottom: 20px;
+		transition: all .5s ease;	
+		display: block;	
+	}
+	#songs iframe:hover {
+		outline: 1px solid white;
+		transition: all .5s ease;
+	}
+	#songs .playlist .playlist-videos img:hover {
+		border: 1px solid white;
+		
+	}
+
+	#songs .video-detail {
+		margin-top: 15px;
+		color: #d6d5d5;
+	}
+	#songs .main-video {
+		outline: 1px solid black;
+		transition: all .5s ease;
+		width: 100%;
+		height: 440px;
+		max-height: 440px;
+	}
+	#songs #main-video {
+		transition: all .5s ease;
+	}
+
+
+	#beats {
+		
+		background-color: #000;
+		padding: 100px 0;
+		color: #d6d5d5;
+		font-family: Raleway;
+	}
+	#beats h2 {
+		margin: 0;
+		line-height: 1em;
+		color: white;
+		margin-bottom: 40px;
+	}
+
+	#beats .panel-group {
+		background-color: #333;
+	}
+	#beats .swiper {
+		position: absolute;
+		left: 100%;
+		display: none;
+	}
+	#beats .swiper img {
+		width: 100px;
+		height: 20px;
+	}
+
+	#beats .panel-default, #beats .panel-default .panel-heading {
+		background-color: transparent;
+		color: #d6d5d5;
+		padding: 0;
+		border: 0;
+		border-bottom: 1px solid #555;
+		border-radius: 0;
+		border-top: 0;
+		position: relative;
+	}
+	#beats .panel-default .panel-heading {
+		border-bottom: 0;
+	}
+
+	#beats .panel-default .panel-heading a {
+		display: block;
+		padding: 0px 10px;
+		border-bottom: 1px solid #000;
+		color: #d6d5d5;
+		text-decoration: none;
+		height: 50px;
+		vertical-align: middle;
+
+	}
+	#beats .glyphicon {
+		color: white;
+		font-size: 20px;
+		vertical-align: middle;
+		line-height: 47px;
+	}
+	#beats .accordian-title {
+		position: absolute;
+		left: 50px;
+		line-height: 50px;
+	}
+	#beats .panel-collapse .panel-body {
+		border: 0;
+		border-top: 1px solid #555;
+		border-bottom: 0;
+	}
+	#beats #in-cart {
+		font-size: 15px;
+		vertical-align: middle;
+
+	}
+	#beats #carrot {
+		margin-top: 19px;
+	}
+	#beats .panel-body ul, #beats .panel-body {
+		padding: 0;
+		margin-bottom: 0;
+	}
+	#beats .panel-body ul li {
+		list-style: none;
+		display: block;
+		padding: 5px;
+		text-align: center;
+		font-size: 12px;
+	}
+	#beats .panel-group .panel {
+		margin: 0;
+	}
+	#beats .panel-body ul li:hover {
+		background-color: black;
+	}
+	#beats .accordian-menu {
+		min-height: 570px;
+		border-right: 1px solid #000;
+		background-color: #333;
+
+	}
+	#beats #djimage {
+		padding: 0 0px 5px 0;
+	}
+
+
+	#beats .beat-selector {
+		height: 570px;
+		background-color: #333;
+		border-left: 1px solid #555;
+		padding: 10px 25px 25px;
+		overflow: hidden;
+		position: relative;
+	}
+	#beats .icon_image_cont {
+		position: absolute;
+		top: 50%;
+		width: 22px;
+		height: 28px;
+	}
+	#beats .icon_image {
+
+		position: absolute;
+		display: block;
+		width: 22px;
+		height: 28px;
+		top: -50%;
+		
+	}
+	#beats #search-beats {
+		background-color: #000;
+		border-color: #555;
+		color: #d6d5d5;
+		border-radius: 0;
+	}
+	#beats .form-inline {
+
+		float: left;
+	}
+	#beats .has-search .form-control-feedback {
+		right: initial;
+		left: 0;
+		color: #555;    
+	}
+	#beats .has-search .form-control {
+		padding-right: 12px;
+		padding-left: 30px;
+		
+	}
+	#beats .form-group span {
+		line-height: 35px;
+		color: black;
+		font-size: 15px;
+	}
+	#beats .total-price {
+		line-height: 33px;
+		margin-right: 20px;
+	}
+	#beats .buy-now {
+		width: 105px;
+		height: 30px;
+		background-color: black;
+		color: white;
+		border-radius: 0;
+		font-size: 12px;
+		font-weight: 600;
+	}
+	#beats .buy-now:hover {
+		background-color: #d6d5d5;
+		color: #333;
+	}
+
+	#beats .currency {
+		font-size: 12px;
+	}
+	#beats .active-song {
+		margin-top: 40px;
+		position: relative;
+	}
+	#beats .active-song .mp3-player {
+		float: left;
+		width: 89px;
+		height: 89px;
+	}
+	#beats .active-song .naming {
+		margin-left: 15px;
+		float: left;
+		line-height: 15px;
+		font-size: 12px;
+	}
+	#beats .active-song .pricing {
+		position: relative;
+
+	}
+	#beats .active-song .pricing .add-to-cart {
+		position: absolute;
+		right: 15px;
+		top: 0;
+
+	}
+	#beats .active-song .pricing .numerical-value {
+		position: absolute;
+		right: 61px;
+		top: 14px;
+		font-size: 12px;
+		font-family: Arial;
+	}
+	#beats .active-song .song-progress {
+		position: absolute;
+		top: 84px;
+		right: 15px;
+		height: 5px;
+		width: calc(100% - 135px);
+		background-color: #d6d5d5;
+	}
+	#beats .active-song .song-progress .current-progress{
+		position: absolute;
+		left: 0;
+		width: calc(30%);
+		height: 5px;
+		background-color: white;
+	}
+	#beats .active-song .song-progress .current-time {
+		position: absolute;
+		bottom: 5px;
+		font-size: 10px;
+		left: 0;
+		font-family: "Times New Roman"
+	}
+	#beats .active-song .song-progress .total-time {
+		position: absolute;
+		bottom: 5px;
+		right: 0;
+		font-size: 10px;
+		font-family: "Times New Roman"
+	}
+	#beats .beat-list {
+		margin-top: 30px;	
+		padding: 0px 15px 0 15px;
+
+	}
+	#beats .beat-list .scroller{
+		height: 340px;
+		overflow: auto;
+		padding-right: 0px;
+	}
+
+
+	#beats .beat-list > div:first-child {
+		background-color: black;
+	}
+
+	#beats .beat-list .beat-name{
+		font-size: 10px;
+		line-height: 10px;	
+	}
+	#beats .beat-list .beat-name span{
+		font-size: 10px;
+		line-height: 10px;
+		margin-bottom: 2px;	
+	}
+	#beats .beat-list .name-details {
+		float: left;
+		height: 42px;
+
+	}
+	#beats .beat-list .name-details .genre{
+		font-size: 10px;
+		line-height: 10px;
+		margin-top: 10px;
+
+	}
+	#beats .beat-list .price-date-details {
+		float: right;
+		height: 42px;
+	}
+	#beats .beat-list .price-date-details .price-range{
+		font-size: 12px;
+		font-family: "Arial";
+		line-height: 12px;
+		display: block;
+	}
+	#beats .beat-list .price-date-details .date-added {
+		font-size: 10px;
+		font-family: "Arial";
+		display: block;
+	}
+	#beats .beat-list .price-date-details .date-added .added {
+		font-size: 10px;
+		line-height: 10px;
+		margin-top: 8px;
+	}
+	#beats .beat-list .price-date-details .date-added .date {
+		font-size: 10px;
+		line-height: 10px;
+		margin-top: 2px;
+	}
+	.beat-list .media {
+		margin-top: 0px;
+		padding: 7px 15px;
+		margin: 0 -15px;
+	}
+	.beat-list .media:hover {
+		background-color: #d6d5d5;
+		color: #000;
+	} 
+	.name-details span, .price-date-details span {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	#beats audio {
+		display: block;
+		z-index: 200;
+		position: absolute;
+		top: -60px;
+	}
+	#beats #play-pause {
+		cursor: pointer;
+		border: 1px solid red;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		position: absolute;
+		top: 25px;
+		left: 40px;
+		
+	}
+	#beats #play-pause img {
+		position: absolute;
+		left: 9px;
+		top: 10px;
+		display: none;
+	}
+
+	#beats #backward {
+		cursor: pointer;
+		border: 1px solid red;
+		width: 20px;
+		height: 20px;
+		border-radius: 0px;
+		position: absolute;
+		top: 38px;
+		left: 17px;
+	}
+	#beats #forward {
+		cursor: pointer;
+		border: 1px solid red;
+		width: 20px;
+		height: 20px;
+		border-radius: 0px;
+		position: absolute;
+		top: 38px;
+		left: 83px;
+	}
+	#beats #shuffle {
+		cursor: pointer;
+		border: 1px solid red;
+		width: 15px;
+		height: 15px;
+		border-radius: 0px;
+		position: absolute;
+		top: 68px;
+		left: 67px;
+	}
+	#beats #replay {
+		cursor: pointer;
+		border: 1px solid red;
+		width: 15px;
+		height: 15px;
+		border-radius: 0px;
+		position: absolute;
+		top: 68px;
+		left: 37px;
+	}
+
+
+
+
+
+
+	#contact {
+		background-color: white;
+		color: #333;
+		min-height: 768px;
+		min-height: 100vh;
+		padding: 100px 0;
+		font-family: Raleway;
+	}
+	#contact h2 {
+		margin: 0;
+		line-height: 1em;
+		margin-bottom: 40px;
+	}
+	#contact textarea {
+		resize: none;
+	}
+	
+	#contact address {
+		margin-top: 35px;
+		line-height: 24px;
+	}
+
+	#contact .form-group {
+		margin: 0;
+	}
+	#contact button {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	footer {
+		min-height: 100px;
+		background-color: #333;
+		color: white;
+		line-height: 100px;
+	}
+	footer .copyright-notice, footer .social-icons {
+		line-height: 100px;
+
+	}
+	footer .fa {
+		margin-left: 20px;		
+		font-size: 30px;
+		vertical-align: middle;
+	}
+	footer #f-icon, footer #t-icon, footer #g-icon {
+		color: white;
+	}
+	footer #f-icon:hover, footer #t-icon:hover, footer #g-icon:hover {
+		color: #d6d5d5;
+	}
+	footer a:hover {
+		text-decoration: none;
+	}
+	footer #DADDY {
+		color: #d6d5d5;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries start here */
+
+
+	@media (max-height : 420px) {
+		.item.active {
+			background-size: 100% 270px;
+		}
+	}
+	@media (max-width: 768px) {
+		#songs .playlist-container { 
+			position: static;
+		}
+	}
+
+	@media (max-width : 720px) {
+		footer .copyright-notice  {
+			line-height: 1.4em;
+			margin-top: 40px;
+			
+		}
+		footer .social-icons {
+			line-height: 1.4em;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.beat-selector .form-inline {
+			width: calc(100% - 50px);
+		}
+		.beat-selector form.hidden-on-mobile {
+			display: none;
+		}
+		.beat-selector button {
+			position: absolute;
+			top: 10px;
+			right: 0px;
+		}
+		.beat-selector .total-price {
+			position: absolute;
+			top: 10px;
+			left: 25px;
+		}
+		#beats .beat-selector .active-song {
+			margin-top: 70px;
+		}
+
+	}
+	@media (max-width: 720px) {
+
+		.carousel-inner .first, 
+		.carousel-inner .second, 
+		.carousel-inner .third, 
+		.carousel-inner .fourth {
+			background-attachment: scroll;
+			background-position: center top;
+			background-size: 100% 100%;
+		}
+		#home {
+			height: 100%;
+			height: calc(100% - 50px);
+			height: 100vh;			
+		}
+		.carousel {
+			
+		}
+
+
+		#beats .swiper {
+			display: block;
+		}
+		#beats .beat-selector {
+			height: auto;
+			width: 100%;
+		}
+		#beats .beat-selector .pricing .numerical-value {
+			top: 47px;
+			right: 0px;
+		}
+		#beats .active-song .pricing img.add-to-cart {
+			right: 0;
+		}
+		#beats .beat-list {
+			padding: 0;
+		}
+		#beats .accordian-menu {
+			position: relative;
+			height: auto;
+			min-height: auto;
+			width: 100%;
+		}
+		#beats .accordian-menu .panel-group {
+			position: absolute;
+			right: 100%;
+			width: 100%;
+			z-index: 4;
+			transition: all 1s ease;
+		}
+		#beats .active-song .song-progress {
+			top: 95px;
+			width: 100%;
+			width: calc(100% - 15px);
+			right: 0;
+		}
+		#beats .active-song .naming {
+			position: relative;
+			height: 89px;
+			font-size: 10px;
+			margin-left: 5px;
+		}
+		#beats .active-song .naming span {
+			width: 120px;
+		}
+		#beats .active-song .naming .track-name {
+			position: absolute;
+			display: block;
+			top: -20px;
+			left: -95px;
+			width: 100vw;
+			
+			text-align: center;
+			color: white;
+			font-size: 12px;
+		}
+		#beats .active-song .naming .genre-name {
+			position: absolute;
+			font-size: 10px;
+			top: 12px;
+		}
+		#beats .active-song .naming .producer-name {
+			position: absolute;
+			top: 0;
+		}
+		#beats .beat-list .media {
+			position: relative;
+			height: 80px;
+		}
+
+		#beats .beat-list .price-date-details {
+			position: absolute;
+			top: 54px;
+			width: 100%;
+		}
+		#beats .beat-list .price-date-details .price-range {
+			position: absolute;
+			right: 30px;
+		}
+		#beats .beat-list .price-date-details .date-added {
+			position: absolute;
+			top: 0;
+		}
+		#beats .beat-list .price-date-details .date-added .added {
+			margin-top: 0;
+		}
+		#beats .beat-container {
+			position: relative;
+			min-height: 540px;
+		}
+		#beats .beat-container .beat-selector {
+			position: absolute;
+			top: 0;
+		}
+
+
+		.hidden-on-mobile {
+			display: none;
+		}
+		.no-mobile-padding-right {
+			padding-right: 0;
+		}
+	}
+
+
+	@media (min-width: 720px) {
+		#songs { 
+			min-height: 100vh;
+		}
+		#beats {
+			min-height: 100vh;
+		}
+	}
+
+	@media (min-width: 720px) {
+		#songs .playlist-container {
+			right: 0;
+		}
+		#songs .playlist {
+			min-height: 440px;
+		}
+
+	}
+	@media (max-height: 420px) {
+		#contact iframe {
+			height: 250px;
+			height: calc(100% - 120px);
+			max-height: 250px;
+		}
+		#songs #main-video iframe.main-video {
+			height: 250px;
+			height: calc(100% - 120px);
+			max-height: 250px;
+		}
+	}
+
+
+/* Media queries finish here */
+/* how to slide background images in the carousel   */
