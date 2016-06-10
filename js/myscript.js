@@ -287,7 +287,7 @@ myscroll.bodypos = function getScrollY() {
 
 
 		/* song player jquery starts */
-		var songs ={};
+		var songs = {};
 		songs.playing = 0;
 		songs.src0 = "songs/hello.mp3";
 		songs.currsong = $("#song1");
@@ -311,64 +311,159 @@ myscroll.bodypos = function getScrollY() {
 
 
 		$(".media .pull-right").click( function(){
+
+			$(songs.currsong).parent().removeClass("active");
 			songs.currsong = $(this).next();
+			$(songs.currsong).parent().addClass("active"); 
+
 			songs.src0 = $( "source", ( $(this).next() ) ).attr("src");
 			songs.songname = $(this).parent().find(".beat-name span").text();
+			songs.genre = $(this).parent().find(".genre").text();
+			songs.price = $(this).parent().find(".price-range").text();
+			songs.prod = $(this).parent().find(".beat-name span")[0].nextSibling.nodeValue;
+
+
 			$(".naming .track-name").text(songs.songname);
 			$("#active-song source").attr("src", songs.src0) ;
 			$("#active-song")[0].load();
 			$("#active-song")[0].play();
 			$("#play-pause img").css("display", "block");
 			$("#play-pause").css("backgroundColor", "white");
+			songs.playing = 1;
 		})
 
 		$("#forward").click( function(){
+			$(songs.currsong).parent().removeClass("active");
 			songs.currsong = songs.currsong.parent().next().children("audio");
+			$(songs.currsong).parent().addClass("active");
 			if(songs.currsong.length != 0) {
 				songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+				songs.genre = $(songs.currsong).parent().find(".genre").text();
+				songs.price = $(songs.currsong).parent().find(".price-range").text();
+				songs.prod = $(songs.currsong).parent().find(".beat-name")[0].childNodes[4].nodeValue;
+
+
 				songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
 				$(".naming .track-name").text(songs.songname);
+				$(".naming .producer-name").text(songs.prod);
+				$(".naming .genre-name").text(songs.genre);
+				$(".pricing .numerical-value").text(songs.price);
 				$("#active-song source").attr("src", songs.src0);
 				$("#play-pause img").css("display", "block");
 				$("#play-pause").css("backgroundColor", "white");
 				$("#active-song")[0].load();
 				$("#active-song")[0].play();
+				songs.playing = 1;
 			}
 			else {
+				$(songs.currsong).parent().removeClass("active");
 				songs.currsong = $("#song1");
+				$(songs.currsong).parent().addClass("active");
 				songs.songname = $("#song1").parent().find(".beat-name span").text();
+				songs.genre = $("#song1").parent().find(".genre").text();
+				songs.price = $("#song1").parent().find(".price-range").text();
+				songs.prod = $("#song1").parent().find(".beat-name")[0].childNodes[4].nodeValue;
+
+
+
 				songs.src0 = $( "source", ( $("#song1") ) ).attr("src");
 				$(".naming .track-name").text(songs.songname);
+				$(".naming .producer-name").text(songs.prod);
+				$(".naming .genre-name").text(songs.genre);
+				$(".pricing .numerical-value").text(songs.price);
 				$("#active-song source").attr("src", songs.src0);
 				$("#play-pause img").css("display", "block");
 				$("#play-pause").css("backgroundColor", "white");
 				$("#active-song")[0].load();
 				$("#active-song")[0].play();
+				songs.playing = 1;
 			}
 		})
 $("#backward").click( function(){
+	$(songs.currsong).parent().removeClass("active");
 	songs.currsong = songs.currsong.parent().prev().children("audio");
+	$(songs.currsong).parent().addClass("active");
 	if(songs.currsong.length != 0) {
 		songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+		songs.genre = $(songs.currsong).parent().find(".genre").text();
+		songs.price = $(songs.currsong).parent().find(".price-range").text();
+		songs.prod = $(songs.currsong).parent().find(".beat-name")[0].childNodes[4].nodeValue;
+
 		songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
 		$(".naming .track-name").text(songs.songname);
+		$(".naming .producer-name").text(songs.prod);
+		$(".naming .genre-name").text(songs.genre);
+		$(".pricing .numerical-value").text(songs.price);
 		$("#active-song source").attr("src", songs.src0);
 		$("#play-pause img").css("display", "block");
 		$("#play-pause").css("backgroundColor", "white");
 		$("#active-song")[0].load();
 		$("#active-song")[0].play();
+		songs.playing = 1;
 	}
 	else {
+		$(songs.currsong).parent().removeClass("active");
 		songs.currsong = $(".beat-list audio").last();
+		$(songs.currsong).parent().addClass("active");
 		songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+		songs.genre = $(songs.currsong).parent().find(".genre").text();
+		songs.price = $(songs.currsong).parent().find(".price-range").text();
+		songs.prod = $(songs.currsong).parent().find(".beat-name")[0].childNodes[4].nodeValue;
+
 		songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
 		$(".naming .track-name").text(songs.songname);
+		$(".naming .producer-name").text(songs.prod);
+		$(".naming .genre-name").text(songs.genre);
+		$(".pricing .numerical-value").text(songs.price);
 		$("#play-pause img").css("display", "block");
 		$("#play-pause").css("backgroundColor", "white");
 		$("#active-song source").attr("src", songs.src0) ;
 		$("#active-song")[0].load();
 		$("#active-song")[0].play();
+		songs.playing = 1;
 	}
 })
+
+$("#shuffle").click( function() {
+	do {
+	songs.nthsong = Math.floor( (Math.random() * $("audio").length)  );
+		}
+		while (songs.nthsong == 0);
+	$(songs.currsong).parent().removeClass("active");
+	songs.currsong = $("audio").eq(songs.nthsong);
+	$(songs.currsong).parent().addClass("active");
+	
+	songs.songname = $(songs.currsong).parent().find(".beat-name span").text();
+	songs.genre = $(songs.currsong).parent().find(".genre").text();
+	songs.price = $(songs.currsong).parent().find(".price-range").text();
+	songs.prod = $(songs.currsong).parent().find(".beat-name")[0].childNodes[4].nodeValue;
+
+	songs.src0 = $( "source", ( $(songs.currsong) ) ).attr("src");
+	$(".naming .track-name").text(songs.songname);
+	$(".naming .producer-name").text(songs.prod);
+	$(".naming .genre-name").text(songs.genre);
+	$(".pricing .numerical-value").text(songs.price);
+	$("#active-song source").attr("src", songs.src0);
+	$("#play-pause img").css("display", "block");
+	$("#play-pause").css("backgroundColor", "white");
+	$("#active-song")[0].load();
+	$("#active-song")[0].play();
+	songs.playing = 1;
+
+	$(".beat-list .scroller").animate({ 
+		scrollTop: $(songs.currsong).parent().position().top 
+	}, 500);
+})
+
+$("#replay").click(function(){
+	$("#active-song")[0].currentTime = 0;
+	$("#active-song")[0].play();
+	songs.playing = 1;
+	$("#play-pause img").css("display", "block");
+	$("#play-pause").css("backgroundColor", "white");
+
+
+})
+
 
 /* song player jquery finishes */
