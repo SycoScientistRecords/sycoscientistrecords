@@ -31,11 +31,11 @@ a:focus {
 
 }
 *::-webkit-scrollbar-button {
-	background: #d6d5d5;
+	background: gray;
 	width: 4px;
 }
 *::-webkit-scrollbar-track-piece {
-	background: #d6d5d5;
+	background: gray;
 	width: 4px;
 }
 *::-webkit-scrollbar-thumb {
@@ -636,6 +636,11 @@ a:focus {
 		margin: 0 -15px;
 	}
 	.beat-list .media:hover {
+		background-color: #111;		
+	}
+	.beat-list .media.active,
+	.beat-list .media.active:hover
+	 {
 		background-color: #d6d5d5;
 		color: #000;
 	} 
