@@ -90,8 +90,10 @@ if (window.matchMedia( "(min-width: 768px)" ).matches) {
 /* Swiping menu for buying Beats Starts*/
 
 var center = document.getElementsByClassName("panel-group")[0];
-var intpos, increment = 0, lastpos = 0, direction, oldx = 0;
-
+var initialleft = parseInt($(".panel-group").css("left"));
+center.style.left = initialleft;
+var intpos, increment = 0, lastpos, direction, oldx = 0;
+lastpos = initialleft;
 var mouseDown = 0;
 var numofclicks = 0;
 document.body.addEventListener("touchstart", function() { 
@@ -100,16 +102,27 @@ document.body.addEventListener("touchstart", function() {
 } );
 document.body.addEventListener( "touchend", function() {
 	--mouseDown;
-	lastpos = parseInt(center.style.left) || 0;
+});
 
-	if( parseInt(center.style.left) > -50 ) {
+center.addEventListener("touchend", function(){
+
+	
+
+
+	if( parseInt(increment) > 100 ) {
 
 		center.style.left = "0px";
+		lastpos = parseInt(center.style.left);
 	}
-	else if( (parseInt(center.style.left) < -50) ) {
+	else if( (parseInt(increment) < -100) ) {
+		center.style.left = initialleft + "px";
+		lastpos = parseInt(center.style.left);
+	}
+	else{
+		center.style.left = lastpos + "px";
+	}
 
-		center.style.left = "-100%";
-	}
+	
 });
 center.addEventListener("touchstart", function(down) {
 
@@ -117,19 +130,19 @@ center.addEventListener("touchstart", function(down) {
 
 	center.addEventListener( "touchmove", function(Dmove) {
 		increment = (Dmove.touches[0].screenX - intpos);
-		if(mouseDown & (numofclicks != 1)) {
-			center.style.left = (lastpos + increment) + "px";				
-		} 
-		else if (mouseDown & (numofclicks == 1) ){
-			center.style.left = increment + "px";				
-		}		
+		
+		center.style.left = (lastpos + increment) + "px";
 
+
+		/*
 		if (Dmove.touches[0].pageX < oldx) {
 			direction = "left";
 		} else if (Dmove.touches[0].pageX > oldx) {
 			direction = "right";
 		}			
-		oldx = Dmove.touches[0].pageX;			
+		oldx = Dmove.touches[0].pageX;	
+
+		*/		
 	});
 });
 
@@ -292,6 +305,14 @@ myscroll.bodypos = function getScrollY() {
 		songs.src0 = "songs/hello.mp3";
 		songs.currsong = $("#song1");
 		songs.songname = "Solder";
+
+		function setsongduration() {
+			songs.duration = parseInt( $("#active-song")[0].duration );
+			songs.mindur = parseInt(songs.duration/60);
+			songs.secdur = songs.duration % 60;
+			$(".song-progress .total-time").text(songs.mindur + ":" + songs.secdur);
+		}
+
 		$("#play-pause").click( function(){
 
 			if(songs.playing == 1) {
@@ -308,6 +329,8 @@ myscroll.bodypos = function getScrollY() {
 			}
 
 		});
+
+		
 
 
 		$(".media .pull-right").click( function(){
@@ -426,9 +449,9 @@ $("#backward").click( function(){
 
 $("#shuffle").click( function() {
 	do {
-	songs.nthsong = Math.floor( (Math.random() * $("audio").length)  );
-		}
-		while (songs.nthsong == 0);
+		songs.nthsong = Math.floor( (Math.random() * $("audio").length)  );
+	}
+	while (songs.nthsong == 0);
 	$(songs.currsong).parent().removeClass("active");
 	songs.currsong = $("audio").eq(songs.nthsong);
 	$(songs.currsong).parent().addClass("active");
@@ -464,6 +487,16 @@ $("#replay").click(function(){
 
 
 })
+
+$("#active-song")[0].addEventListener('loadedmetadata', function() {
+
+	$(".beat-list .scroller").animate({ 
+		scrollTop: $(songs.currsong).parent().position().top 
+	}, 500);
+
+	setsongduration();
+});
+
 
 
 /* song player jquery finishes */
