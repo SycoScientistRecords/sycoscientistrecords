@@ -692,7 +692,7 @@ a:focus {
 		top: 38px;
 		left: 83px;
 	}
-	#beats #shuffle {
+	#beats #replay {
 		cursor: pointer;
 		border: 1px solid red;
 		width: 15px;
@@ -702,7 +702,7 @@ a:focus {
 		top: 68px;
 		left: 67px;
 	}
-	#beats #replay {
+	#beats #shuffle {
 		cursor: pointer;
 		border: 1px solid red;
 		width: 15px;
