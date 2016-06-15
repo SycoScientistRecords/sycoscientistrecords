@@ -96,18 +96,9 @@ var intpos, increment = 0, lastpos, direction, oldx = 0;
 lastpos = initialleft;
 var mouseDown = 0;
 var numofclicks = 0;
-document.body.addEventListener("touchstart", function() { 
-	++mouseDown;
-	++numofclicks;
-} );
-document.body.addEventListener( "touchend", function() {
-	--mouseDown;
-});
+
 
 center.addEventListener("touchend", function(){
-
-	
-
 
 	if( parseInt(increment) > 100 ) {
 
@@ -144,6 +135,15 @@ center.addEventListener("touchstart", function(down) {
 
 		*/		
 	});
+});
+
+$(window).on("orientationchange",function(){
+
+	alert("screen is" + screen.width);
+	center.style.left = "-" + screen.width + "px";
+	initialleft = "-" + screen.width;
+	lastpos = initialleft;
+	
 });
 
 /* Swiping menu finishes here */
