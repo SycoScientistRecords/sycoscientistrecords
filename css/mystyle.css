@@ -301,9 +301,11 @@ a:focus {
 		overflow-y: auto;
 		overflow-x: hidden; 
 		min-height: 0px;
-		height: 390px;
+		height: 0px;
 		transition: all .5s ease;
 	}
+
+
 	#songs .playlist .playlist-videos img {
 		width: 100%;
 		height: 90px;
@@ -316,8 +318,7 @@ a:focus {
 		transition: all .5s ease;
 	}
 	#songs .playlist .playlist-videos img:hover {
-		border: 1px solid white;
-		
+		border: 1px solid white;		
 	}
 
 	#songs .video-detail {
@@ -360,7 +361,7 @@ a:focus {
 	}
 	#beats .swiper img {
 		width: 100px;
-		height: 20px;
+		height: 50px;
 	}
 
 	#beats .panel-default, #beats .panel-default .panel-heading {
