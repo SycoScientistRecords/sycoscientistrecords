@@ -301,7 +301,7 @@ a:focus {
 		overflow-y: auto;
 		overflow-x: hidden; 
 		min-height: 0px;
-		height: 0px;
+		height: 390px;
 		transition: all .5s ease;
 	}
 
@@ -890,7 +890,7 @@ a:focus {
 			right: 100%;
 			width: 100%;
 			z-index: 4;
-			transition: all 1s ease;
+			/* transition: all 1s ease; */
 		}
 		#beats .active-song .song-progress {
 			top: 95px;
