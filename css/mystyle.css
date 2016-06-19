@@ -547,14 +547,14 @@ a:focus {
 		right: 15px;
 		height: 5px;
 		width: calc(100% - 135px);
-		background-color: #d6d5d5;
+		background-color: white;
 	}
 	#beats .active-song .song-progress .current-progress{
 		position: absolute;
 		left: 0;
 		width: 0px;
 		height: 5px;
-		background-color: white;
+		background-color: #bbb;
 	}
 	#beats .active-song .song-progress .current-time {
 		position: absolute;
@@ -571,13 +571,14 @@ a:focus {
 		font-family: "Times New Roman"
 	}
 	#beats .active-song .song-progress .current-position {
-		height: 10px;
+		height: 9px;
 		width: 15px;
-		background-color: red;
+		background-color: #00cdff;
 		position: absolute;
 		top: -2.5px;
 		left: 1px;
 		cursor: pointer;
+		border-radius: 5px;
 	}
 	#beats .beat-list {
 		margin-top: 30px;	
