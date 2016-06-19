@@ -112,13 +112,13 @@ center.addEventListener("touchend", function(){
 	else{
 		center.style.left = lastpos + "px";
 	}
-
+	$("#beats .accordian-menu .panel-group").css("transition", "all .5s ease")
 	
 });
 center.addEventListener("touchstart", function(down) {
 
 	intpos = down.touches[0].screenX;
-
+	$("#beats .accordian-menu .panel-group").css("transition", "none 0s ease")
 	center.addEventListener( "touchmove", function(Dmove) {
 		increment = (Dmove.touches[0].screenX - intpos);
 		
@@ -141,7 +141,7 @@ $(window).on("orientationchange",function(){
 
 	alert("screen is" + screen.width);
 	center.style.left = "-" + screen.width + "px";
-	initialleft = "-" + screen.width;
+	initialleft = parseInt("-" + screen.width);
 	lastpos = initialleft;
 	
 });
