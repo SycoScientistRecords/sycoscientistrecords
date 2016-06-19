@@ -493,8 +493,13 @@ $("#active-song")[0].addEventListener('loadedmetadata', function() {
 	$(".beat-list .scroller").animate({ 
 		scrollTop: $(songs.currsong).parent().position().top 
 	}, 500);
-
 	setsongduration();
+	$("#active-song")[0].addEventListener('progress', function() {
+		songs.duration = $("#active-song")[0].duration ;
+		var buff786 =  $("#active-song")[0].buffered.end(0);		
+		var percentbuffered = (buff786/songs.duration) * 100;
+		$(".song-progress .current-progress").css("width", percentbuffered + "%");
+	});
 });
 
 
