@@ -94,8 +94,6 @@ var initialleft = parseInt($(".panel-group").css("left"));
 center.style.left = initialleft;
 var intpos, increment = 0, lastpos, direction, oldx = 0;
 lastpos = initialleft;
-var mouseDown = 0;
-var numofclicks = 0;
 
 
 center.addEventListener("touchend", function(){
@@ -502,6 +500,52 @@ $("#active-song")[0].addEventListener('loadedmetadata', function() {
 	});
 });
 
+
+
+songs.clickedM = 0;
+$(".song-progress .current-position")[0].addEventListener("mousedown", function(down2) {
+	songs.clickedM = 1;
+});
+$("body")[0].addEventListener( "mousemove", function(Dmove2) {
+		if(songs.clickedM == 1) {
+			if (Dmove2.clientX <= $(".song-progress").offset().left) {
+				$(".song-progress .current-position")[0].style.left = "0px";				
+			}
+			else if( Dmove2.clientX >= ($(".song-progress").outerWidth() + $(".song-progress").offset().left)) {
+				$(".song-progress .current-position")[0].style.left = ( $(".song-progress").outerWidth() - 14) + "px";				
+			}
+			else {
+				$(".song-progress .current-position")[0].style.left = (Dmove2.clientX - $(".song-progress").offset().left ) + "px";				
+			}
+		}		
+	});
+$("body")[0].addEventListener("mouseup", function() {
+	songs.clickedM = 0;	
+});
+
+
+$(".song-progress .current-position")[0].addEventListener("touchstart", function(down3) {
+	songs.clickedM = 1;
+
+});
+$("body")[0].addEventListener( "touchmove", function(Dmove3) {
+
+		if(songs.clickedM == 1) {
+			if (Dmove3.touches[0].clientX <= $(".song-progress").offset().left) {
+				$(".song-progress .current-position")[0].style.left = "0px";				
+			}
+			else if( Dmove3.touches[0].clientX >= ($(".song-progress").outerWidth() + $(".song-progress").offset().left)) {
+				$(".song-progress .current-position")[0].style.left = ( $(".song-progress").outerWidth() - 14) + "px";	
+					
+			}
+			else {
+				$(".song-progress .current-position")[0].style.left = (Dmove3.touches[0].clientX - $(".song-progress").offset().left ) + "px";				
+			}
+		}		
+	});
+$("body")[0].addEventListener("touchend", function() {
+	songs.clickedM = 0;	
+});
 
 
 /* song player jquery finishes */
