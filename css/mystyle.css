@@ -552,7 +552,7 @@ a:focus {
 	#beats .active-song .song-progress .current-progress{
 		position: absolute;
 		left: 0;
-		width: calc(30%);
+		width: 0px;
 		height: 5px;
 		background-color: white;
 	}
@@ -569,6 +569,15 @@ a:focus {
 		right: 0;
 		font-size: 10px;
 		font-family: "Times New Roman"
+	}
+	#beats .active-song .song-progress .current-position {
+		height: 10px;
+		width: 15px;
+		background-color: red;
+		position: absolute;
+		top: -2.5px;
+		left: 1px;
+		cursor: pointer;
 	}
 	#beats .beat-list {
 		margin-top: 30px;	
