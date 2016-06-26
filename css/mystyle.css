@@ -108,7 +108,7 @@ a:focus {
 
 		width: 100%;
 		height: 100%;
-			 
+
 	}
 	.mobile-carousel {
 		padding-top: 61px;
@@ -232,6 +232,7 @@ a:focus {
 	}
 	.read-more:hover {
 		border-color: #333;
+		background-color: #fff;
 	}
 
 
@@ -651,7 +652,7 @@ a:focus {
 	}
 	.beat-list .media.active,
 	.beat-list .media.active:hover
-	 {
+	{
 		background-color: #d6d5d5;
 		color: #000;
 	} 
@@ -809,7 +810,7 @@ a:focus {
 
 
 
-/* media queries start here */
+	/* media queries start here */
 
 
 	@media (max-height : 420px) {
@@ -853,9 +854,10 @@ a:focus {
 		#beats .beat-selector .active-song {
 			margin-top: 70px;
 		}
+		#beats .beat-selector  {
+			padding-top: 35px;
+		}
 
-	}
-	@media (max-width: 720px) {
 
 		.carousel-inner .first, 
 		.carousel-inner .second, 
@@ -1012,5 +1014,5 @@ a:focus {
 	}
 
 
-/* Media queries finish here */
+	/* Media queries finish here */
 /* how to slide background images in the carousel   */
