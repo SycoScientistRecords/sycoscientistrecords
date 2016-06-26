@@ -576,7 +576,7 @@ a:focus {
 		background-color: #00cdff;
 		position: absolute;
 		top: -2.5px;
-		left: 1px;
+		left: 0px;
 		cursor: pointer;
 		border-radius: 5px;
 	}
@@ -660,10 +660,13 @@ a:focus {
 		vertical-align: bottom;
 	}
 	#beats audio {
+		display: none;
+	}
+	#beats .active-song audio {
 		display: block;
 		z-index: 200;
 		position: absolute;
-		top: -60px;
+		top: -30px;
 	}
 	#beats #play-pause {
 		cursor: pointer;

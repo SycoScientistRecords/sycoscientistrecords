@@ -90,39 +90,15 @@ if (window.matchMedia( "(min-width: 768px)" ).matches) {
 /* Swiping menu for buying Beats Starts*/
 
 var center = document.getElementsByClassName("panel-group")[0];
-var initialleft = parseInt($(".panel-group").css("left"));
-center.style.left = initialleft;
+var initialleft = parseInt("-" + screen.width);
 var intpos, increment = 0, lastpos, direction, oldx = 0;
 lastpos = initialleft;
+center.style.left = initialleft;
 
 
-center.addEventListener("touchend", function(){
-
-	if( parseInt(increment) > 100 ) {
-
-		center.style.left = "0px";
-		lastpos = parseInt(center.style.left);
-	}
-	else if( (parseInt(increment) < -100) ) {
-		center.style.left = initialleft + "px";
-		lastpos = parseInt(center.style.left);
-	}
-	else{
-		center.style.left = lastpos + "px";
-	}
-	$("#beats .accordian-menu .panel-group").css("transition", "all .5s ease")
-	
-});
-center.addEventListener("touchstart", function(down) {
-
-	intpos = down.touches[0].screenX;
-	$("#beats .accordian-menu .panel-group").css("transition", "none 0s ease")
-	center.addEventListener( "touchmove", function(Dmove) {
-		increment = (Dmove.touches[0].screenX - intpos);
-		
-		center.style.left = (lastpos + increment) + "px";
-
-
+function centertouchmove(Dmove) {
+	increment = (Dmove.touches[0].screenX - intpos);		
+	center.style.left = (lastpos + increment) + "px";
 		/*
 		if (Dmove.touches[0].pageX < oldx) {
 			direction = "left";
@@ -132,22 +108,46 @@ center.addEventListener("touchstart", function(down) {
 		oldx = Dmove.touches[0].pageX;	
 
 		*/		
+	}
+
+	function centertouchend() {
+		$("#beats .accordian-menu .panel-group").css("transition", "all .5s ease");	
+		if( parseInt(increment) > 100 ) {
+			center.style.left = "0px";
+			lastpos = parseInt(center.style.left);
+		}
+		else if( (parseInt(increment) < -100) ) {
+			center.style.left = initialleft + "px";
+			lastpos = parseInt(center.style.left);
+		}
+		else{
+			center.style.left = lastpos + "px";
+		}
+		
+		center.removeEventListener( "touchmove", centertouchmove);
+		center.removeEventListener("touchend", centertouchend);
+	}
+
+	center.addEventListener("touchstart", function centertouchstart(down) {
+
+		intpos = down.touches[0].screenX;
+		$("#beats .accordian-menu .panel-group").css("transition", "none 0s ease")
+		center.addEventListener( "touchmove", centertouchmove);
+		center.addEventListener("touchend", centertouchend);
 	});
-});
-
-$(window).on("orientationchange",function(){
-
-	alert("screen is" + screen.width);
-	center.style.left = "-" + screen.width + "px";
-	initialleft = parseInt("-" + screen.width);
-	lastpos = initialleft;
-	
-});
-
-/* Swiping menu finishes here */
 
 
 
+
+
+	$(window).on("orientationchange",function(){	
+		center.style.left = "-" + screen.width + "px";
+		initialleft = parseInt("-" + screen.width);
+		lastpos = initialleft;
+
+	});
+
+	/* Swiping menu finishes here */
 
 
 
@@ -158,14 +158,17 @@ $(window).on("orientationchange",function(){
 
 
 
-/* jquery scrolling starts */
 
-var myscroll = {};
-myscroll.list = document.getElementsByClassName("navbar-right")[0].getElementsByTagName("li");
 
-myscroll.bodypos = function getScrollY() {
-	var scrOfY = 0;
-	if( typeof( window.pageYOffset ) == 'number' ) {
+
+	/* jquery scrolling starts */
+
+	var myscroll = {};
+	myscroll.list = document.getElementsByClassName("navbar-right")[0].getElementsByTagName("li");
+
+	myscroll.bodypos = function getScrollY() {
+		var scrOfY = 0;
+		if( typeof( window.pageYOffset ) == 'number' ) {
 		//Netscape compliant
 		scrOfY = window.pageYOffset;
 
@@ -177,9 +180,7 @@ myscroll.bodypos = function getScrollY() {
 		} else if( document.documentElement && ( document.documentElement.scrollLeft || document.documentElement.scrollTop ) ) {
 				//IE6 standards compliant mode
 				scrOfY = document.documentElement.scrollTop;
-
 			}
-
 			return scrOfY;
 		}
 
@@ -208,60 +209,39 @@ myscroll.bodypos = function getScrollY() {
 		}
 
 
-
-		window.addEventListener('scroll', function(e) { 		
-
+		window.addEventListener('scroll', function(e) {
 			if (myscroll.bodypos() >= myscroll.point[0] - window.innerHeight/2 ){
 				removeclass();
 				myscroll.list[0].className = "active";
-
 			}
-
-
 			if (myscroll.bodypos() >= myscroll.point[1] - window.innerHeight/2 ){
 				removeclass();		
 				myscroll.list[1].className = "active";
-
 			}
-
 			if (myscroll.bodypos() >= myscroll.point[2] - window.innerHeight/2 ){
 				removeclass();
 				myscroll.list[2].className = "active";
-
 			}
-
 			if (myscroll.bodypos() >= myscroll.point[3] - window.innerHeight/2 ){
 				removeclass();
 				myscroll.list[3].className = "active";
-
 			}
-
 			if (myscroll.bodypos() >= myscroll.point[4] - window.innerHeight/2 ){
 				removeclass();
 				myscroll.list[4].className = "active";
-
 			}
 		});
 
 		for( var j=0; j < 5; j++) {
-
 			(function(j) {
-
 				myscroll.list[j].anchor = document.getElementsByClassName("navbar-right")[0].getElementsByTagName("li")[j].getElementsByTagName("a")[0];
-
 				$(myscroll.list[j].anchor).click(function(event) {
 					event.preventDefault();
 					$('html, body').animate({
 						scrollTop: myscroll.point[j],
-
-					}, 700 , function() { window.location = event.target.href } );		
-
-
+					}, 700 , function() { window.location = event.target.href } );	
 				});
-
-
 			}(j));
-
 		}
 
 		/* jquery scrolling finishes */
@@ -503,49 +483,64 @@ $("#active-song")[0].addEventListener('loadedmetadata', function() {
 
 
 songs.clickedM = 0;
-$(".song-progress .current-position")[0].addEventListener("mousedown", function(down2) {
-	songs.clickedM = 1;
-});
-$("body")[0].addEventListener( "mousemove", function(Dmove2) {
-		if(songs.clickedM == 1) {
-			if (Dmove2.clientX <= $(".song-progress").offset().left) {
-				$(".song-progress .current-position")[0].style.left = "0px";				
-			}
-			else if( Dmove2.clientX >= ($(".song-progress").outerWidth() + $(".song-progress").offset().left)) {
-				$(".song-progress .current-position")[0].style.left = ( $(".song-progress").outerWidth() - 14) + "px";				
-			}
-			else {
-				$(".song-progress .current-position")[0].style.left = (Dmove2.clientX - $(".song-progress").offset().left ) + "px";				
-			}
-		}		
-	});
-$("body")[0].addEventListener("mouseup", function() {
+function songmove(Dmove2) {		
+	if(songs.clickedM == 1) {
+		if (Dmove2.clientX <= $(".song-progress").offset().left) {
+			$(".song-progress .current-position")[0].style.left = "0px";				
+		}
+		else if( Dmove2.clientX >= ($(".song-progress").outerWidth() + $(".song-progress").offset().left) -14) {
+			$(".song-progress .current-position")[0].style.left = ( $(".song-progress").outerWidth() - 14) + "px";				
+		}
+		else {
+			$(".song-progress .current-position")[0].style.left = (Dmove2.clientX - $(".song-progress").offset().left ) + "px";				
+		}
+	}		
+}
+
+function songup(e24) {		
 	songs.clickedM = 0;	
+	$("body")[0].removeEventListener("mousemove",  songmove);
+	$("body")[0].removeEventListener("mouseup",  songup);
+}
+
+$(".song-progress .current-position")[0].addEventListener("mousedown", function songdown(down2) {
+	songs.clickedM = 1;
+	down2.preventDefault();
+	$("body")[0].addEventListener( "mousemove", songmove);
+	$("body")[0].addEventListener("mouseup", songup);
 });
 
+
+
+function songtouchmove(Dmove3) {
+	Dmove3.preventDefault();
+	if(songs.clickedM == 1) {
+		if (Dmove3.touches[0].clientX <= $(".song-progress").offset().left) {
+			$(".song-progress .current-position")[0].style.left = "0px";				
+		}
+		else if( Dmove3.touches[0].clientX >= ($(".song-progress").outerWidth() + $(".song-progress").offset().left) - 14) {
+			$(".song-progress .current-position")[0].style.left = ( $(".song-progress").outerWidth() - 14) + "px";	
+		}
+		else {
+			$(".song-progress .current-position")[0].style.left = (Dmove3.touches[0].clientX - $(".song-progress").offset().left ) + "px";				
+		}
+	}		
+}
+
+function songtouchend(e23) {		
+	songs.clickedM = 0;	
+	$("body")[0].removeEventListener("mousemove",  songtouchmove);
+	$("body")[0].removeEventListener("mouseup",  songtouchend);
+}
 
 $(".song-progress .current-position")[0].addEventListener("touchstart", function(down3) {
+	down3.preventDefault();
 	songs.clickedM = 1;
 
+	$("body")[0].addEventListener( "touchmove", songtouchmove);
+	$("body")[0].addEventListener("touchend",  songtouchend);
 });
-$("body")[0].addEventListener( "touchmove", function(Dmove3) {
 
-		if(songs.clickedM == 1) {
-			if (Dmove3.touches[0].clientX <= $(".song-progress").offset().left) {
-				$(".song-progress .current-position")[0].style.left = "0px";				
-			}
-			else if( Dmove3.touches[0].clientX >= ($(".song-progress").outerWidth() + $(".song-progress").offset().left)) {
-				$(".song-progress .current-position")[0].style.left = ( $(".song-progress").outerWidth() - 14) + "px";	
-					
-			}
-			else {
-				$(".song-progress .current-position")[0].style.left = (Dmove3.touches[0].clientX - $(".song-progress").offset().left ) + "px";				
-			}
-		}		
-	});
-$("body")[0].addEventListener("touchend", function() {
-	songs.clickedM = 0;	
-});
 
 
 /* song player jquery finishes */
