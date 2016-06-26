@@ -541,6 +541,50 @@ $(".song-progress .current-position")[0].addEventListener("touchstart", function
 	$("body")[0].addEventListener("touchend",  songtouchend);
 });
 
-
-
 /* song player jquery finishes */
+
+
+
+/* volume button starts here */
+songs.clickedV = 0;
+var vol = $(".volume-circle")[0];
+vol.mycenter = $(".mp3-player").offset().left + 45;
+
+
+function volmove(Dmove5) {		
+	if(songs.clickedV == 1) {
+		if (Dmove5.clientX <= $(".mp3-player").offset().left + 9) {
+			$(".volume-circle")[0].style.left = "25px";	
+			$(".volume-circle")[0].style.top = "22px";			
+		}
+		else if( Dmove5.clientX >= (57 +  $(".mp3-player").offset().left + 9) ){
+			$(".volume-circle")[0].style.left = ( 57 + 25 + "px" );	
+			$(".volume-circle")[0].style.top = "22px";				
+		}
+		else {
+			$(".volume-circle")[0].style.left =  (Dmove5.clientX - ($(".mp3-player").offset().left + 9) + 25) +"px";
+			vol.mypos = $(".volume-circle").offset().left + 12;
+			vol.myY = (vol.mycenter - vol.mypos)*(1.3);
+			vol.myX = Math.sqrt( (1225 - Math.pow(vol.myY, 2)) );
+			$(".volume-circle")[0].style.top = 28 - vol.myX + "px";				
+		}
+	}		
+}
+
+function volup(e25) {		
+	songs.clickedV = 0;	
+	$("body")[0].removeEventListener("mousemove",  volmove);
+	$("body")[0].removeEventListener("mouseup",  volup);
+}
+
+$(".volume-circle")[0].addEventListener("mousedown", function voldown(down5) {
+	
+	songs.clickedV = 1;
+	down5.preventDefault();
+	$("body")[0].addEventListener( "mousemove", volmove);
+	$("body")[0].addEventListener("mouseup", volup);
+});
+
+
+
+/* volume button finishes here */

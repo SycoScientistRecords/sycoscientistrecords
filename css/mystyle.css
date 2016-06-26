@@ -229,10 +229,12 @@ a:focus {
 		border-radius: 1px;
 		border-color: #a6a6a4;
 		margin-bottom: 15px;
+		transition: all .5s;
 	}
 	.read-more:hover {
 		border-color: #333;
 		background-color: #fff;
+
 	}
 
 
@@ -519,6 +521,20 @@ a:focus {
 		width: 89px;
 		height: 89px;
 	}
+	#beats .active-song .volume-circle {
+		position: absolute;
+		top: 22px;
+		left: 25px;
+		background-color: cyan;
+		border-radius: 50%;
+		width: 12px;
+		height: 12px;
+		cursor: pointer;
+		z-index: 3;
+	}
+
+
+
 	#beats .active-song .naming {
 		margin-left: 15px;
 		float: left;
