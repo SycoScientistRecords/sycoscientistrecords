@@ -563,8 +563,8 @@ function volmove(Dmove5) {
 		}
 		else {
 			$(".volume-circle")[0].style.left =  (Dmove5.clientX - ($(".mp3-player").offset().left + 9) + 25) +"px";
-			vol.mypos = $(".volume-circle").offset().left + 12;
-			vol.myY = (vol.mycenter - vol.mypos)*(1.3);
+			vol.mypos = $(".volume-circle").offset().left + 6;
+			vol.myY = (vol.mycenter - vol.mypos)*(1.15);
 			vol.myX = Math.sqrt( (1225 - Math.pow(vol.myY, 2)) );
 			$(".volume-circle")[0].style.top = 28 - vol.myX + "px";				
 		}
