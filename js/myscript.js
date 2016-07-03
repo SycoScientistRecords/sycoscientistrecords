@@ -555,18 +555,18 @@ function volmove(Dmove5) {
 	if(songs.clickedV == 1) {
 		if (Dmove5.clientX <= $(".mp3-player").offset().left + 9) {
 			$(".volume-circle")[0].style.left = "25px";	
-			$(".volume-circle")[0].style.top = "22px";			
+			$(".volume-circle")[0].style.top = "24px";			
 		}
 		else if( Dmove5.clientX >= (57 +  $(".mp3-player").offset().left + 9) ){
 			$(".volume-circle")[0].style.left = ( 57 + 25 + "px" );	
-			$(".volume-circle")[0].style.top = "22px";				
+			$(".volume-circle")[0].style.top = "24px";				
 		}
 		else {
 			$(".volume-circle")[0].style.left =  (Dmove5.clientX - ($(".mp3-player").offset().left + 9) + 25) +"px";
 			vol.mypos = $(".volume-circle").offset().left + 6;
-			vol.myY = (vol.mycenter - vol.mypos)*(1.15);
-			vol.myX = Math.sqrt( (1225 - Math.pow(vol.myY, 2)) );
-			$(".volume-circle")[0].style.top = 28 - vol.myX + "px";				
+			vol.myY = (vol.mycenter - vol.mypos);
+			vol.myX = Math.sqrt( (1000 - Math.pow(vol.myY, 2)) );
+			$(".volume-circle")[0].style.top = 38.77 - vol.myX + "px";				
 		}
 	}		
 }

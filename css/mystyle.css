@@ -130,37 +130,47 @@ a:focus {
 	}
 
 
-	.carousel-inner .first {
-		width: 100%;	
-		margin: auto;
-		background: url(../images/studio.jpg) no-repeat fixed;
-		background-position: center 61px;
-		background-size: 100% calc(100% - 61px);
+	.carousel-inner .first	
+	{		
+		background-image: url(../images/studio.jpg);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: 0 0;
+		background-size: cover;
 		background-clip: content-box;
-	}
-	.carousel-inner .second {
-		width: 100%;	
 		margin: auto;
-		background: url(../images/mike.jpg) no-repeat fixed;
-		background-position: center 61px;
-		background-size: 100% calc(100% - 61px);
+		width: 100%;
+			}
+	.carousel-inner .second {		
+		background-image: url(../images/mike.jpg);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: 0 0;
+		background-size: cover;
 		background-clip: content-box;
+		margin: auto;
+		width: 100%;	
 	}
+	
 	.carousel-inner .third {
-		width: 100%;	
-		margin: auto;
-		background: url(../images/discScratch.jpg) no-repeat fixed;
-		background-position: center 61px;
-		background-size: 100% calc(100% - 61px);
+		background-image: url(../images/discScratch.jpg);	
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: bottom right;
+		background-size: cover;
 		background-clip: content-box;
+		margin: auto;
+		width: 100%;
 	}
-	.carousel-inner .fourth {
-		width: 100%;	
-		margin: auto;
-		background: url(../images/ThugLife.jpg) no-repeat fixed;
-		background-position: center 61px;
-		background-size: 100% calc(100% - 61px);
+	.carousel-inner .fourth {		
+		background-image: url(../images/ThugLife.jpg);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: 0 0;
+		background-size: cover;
 		background-clip: content-box;
+		margin: auto;
+		width: 100%;	
 	}
 	.carousel-control span {
 		left: 50%;
@@ -523,8 +533,8 @@ a:focus {
 	}
 	#beats .active-song .volume-circle {
 		position: absolute;
-		top: 22px;
-		left: 25px;
+		top: 9.94px;
+		left: 67px;
 		background-color: cyan;
 		border-radius: 50%;
 		width: 12px;
@@ -590,7 +600,7 @@ a:focus {
 	#beats .active-song .song-progress .current-position {
 		height: 9px;
 		width: 15px;
-		background-color: #00cdff;
+		background-color: cyan;
 		position: absolute;
 		top: -2.5px;
 		left: 0px;
@@ -687,7 +697,6 @@ a:focus {
 	}
 	#beats #play-pause {
 		cursor: pointer;
-		border: 1px solid red;
 		width: 40px;
 		height: 40px;
 		border-radius: 20px;
@@ -705,7 +714,6 @@ a:focus {
 
 	#beats #backward {
 		cursor: pointer;
-		border: 1px solid red;
 		width: 20px;
 		height: 20px;
 		border-radius: 0px;
@@ -715,7 +723,6 @@ a:focus {
 	}
 	#beats #forward {
 		cursor: pointer;
-		border: 1px solid red;
 		width: 20px;
 		height: 20px;
 		border-radius: 0px;
@@ -725,7 +732,6 @@ a:focus {
 	}
 	#beats #replay {
 		cursor: pointer;
-		border: 1px solid red;
 		width: 15px;
 		height: 15px;
 		border-radius: 0px;
@@ -735,7 +741,6 @@ a:focus {
 	}
 	#beats #shuffle {
 		cursor: pointer;
-		border: 1px solid red;
 		width: 15px;
 		height: 15px;
 		border-radius: 0px;
@@ -830,9 +835,7 @@ a:focus {
 
 
 	@media (max-height : 420px) {
-		.item.active {
-			background-size: 100% 270px;
-		}
+		
 	}
 	@media (max-width: 768px) {
 		#songs .playlist-container { 
@@ -880,8 +883,6 @@ a:focus {
 		.carousel-inner .third, 
 		.carousel-inner .fourth {
 			background-attachment: scroll;
-			background-position: center top;
-			background-size: 100% 100%;
 		}
 		#home {
 			height: 100%;
@@ -1035,6 +1036,11 @@ a:focus {
 			max-height: 200px;
 		}
 
+	}
+	@media (max-width: 768px) and (orientation: potrait) {
+		#home {
+			max-height: 300px;
+		}
 	}
 
 	/* Media queries finish here */
