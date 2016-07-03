@@ -1030,5 +1030,12 @@ a:focus {
 	}
 
 
+	@media (max-device-height: 580px) and (orientation: landscape) {
+		.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+			max-height: 200px;
+		}
+
+	}
+
 	/* Media queries finish here */
 /* how to slide background images in the carousel   */
