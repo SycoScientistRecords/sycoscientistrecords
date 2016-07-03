@@ -145,7 +145,7 @@ a:focus {
 		background-image: url(../images/mike.jpg);
 		background-repeat: no-repeat;
 		background-attachment: fixed;
-		background-position: 0 0;
+		background-position: center center;
 		background-size: cover;
 		background-clip: content-box;
 		margin: auto;
@@ -166,7 +166,7 @@ a:focus {
 		background-image: url(../images/ThugLife.jpg);
 		background-repeat: no-repeat;
 		background-attachment: fixed;
-		background-position: 0 0;
+		background-position:  80% top;
 		background-size: cover;
 		background-clip: content-box;
 		margin: auto;
